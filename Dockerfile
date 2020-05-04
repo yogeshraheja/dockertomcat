@@ -4,7 +4,7 @@ RUN  yum install -y epel-release java-1.8.0-openjdk.x86_64 wget
 RUN groupadd tomcat && mkdir /opt/tomcat
 RUN useradd -s /bin/nologin -g tomcat -d /opt/tomcat tomcat
 WORKDIR /
-RUN wget https://archive.apache.org/dist/tomcat/tomcat-8/$tomcat_version/bin/apache-tomcat-$tomcat_version.tar.gz
+RUN wget https://archive.apache.org/dist/tomcat/tomcat-8/v$tomcat_version/bin/apache-tomcat-$tomcat_version.tar.gz
 RUN tar -zxvf apache-tomcat-$tomcat_version.tar.gz -C /opt/tomcat --strip-components=1
 RUN cd /opt/tomcat && chgrp -R tomcat conf
 RUN chmod g+rwx /opt/tomcat/conf && chmod g+r /opt/tomcat/conf/*
